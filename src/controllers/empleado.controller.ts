@@ -75,6 +75,7 @@ export class EmpleadoController {
     return this.empleadoRepository.find(filter);
   }
 
+
   @patch('/empleados')
   @response(200, {
     description: 'Empleado PATCH success count',

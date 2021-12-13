@@ -1,24 +1,25 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model({settings: {strict: false}})
-export class Inmueble extends Entity {
+export class Usuario extends Entity {
   @property({
     type: 'string',
-    required: true,
+    id: true,
+    generated: true,
   })
-  tipo: string;
+  id?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  tipoContrato: string;
+  nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  descripcion: string;
+  apellido: string;
 
   @property({
     type: 'string',
@@ -30,14 +31,13 @@ export class Inmueble extends Entity {
     type: 'string',
     required: true,
   })
-  ciudad: string;
+  email: string;
 
   @property({
     type: 'string',
-    id: true,
-    generated: true,
+    required: true,
   })
-  id?: string;
+  rol: string;
 
   // Define well-known properties here
 
@@ -45,13 +45,13 @@ export class Inmueble extends Entity {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
 
-  constructor(data?: Partial<Inmueble>) {
+  constructor(data?: Partial<Usuario>) {
     super(data);
   }
 }
 
-export interface InmuebleRelations {
+export interface UsuarioRelations {
   // describe navigational properties here
 }
 
-export type InmuebleWithRelations = Inmueble & InmuebleRelations;
+export type UsuarioWithRelations = Usuario & UsuarioRelations;
